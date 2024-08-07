@@ -1,0 +1,19 @@
+input {
+    width: 80%;
+}
+
+button {
+    background-color: green;
+    font-size: medium;
+    color: white;
+    width: 80%;
+}
+
+.form_clientes {
+    font-size: large;
+
+}
+
+table {
+    font-size: large;
+}
