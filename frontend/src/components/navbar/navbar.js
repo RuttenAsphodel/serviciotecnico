@@ -1,58 +1,34 @@
-import React, { useState } from "react";
-import "./navbar.css";
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 
-function Navbar() {
-  const [active, setActive] = useState("nav__menu");
-  const [icon, setIcon] = useState("nav__toggler");
-  const navToggle = () => {
-    if (active === "nav__menu") {
-      setActive("nav__menu nav__active");
-    } else setActive("nav__menu");
-
-    // Icon Toggler
-    if (icon === "nav__toggler") {
-      setIcon("nav__toggler toggle");
-    } else setIcon("nav__toggler");
-  };
+function BasicExample() {
   return (
-    <nav className="nav">
-      <a href="#1" className="nav__brand">
-        Sistema de Soporte
-      </a>
-      <ul className={active}>
-        <li className="nav__item">
-          <a href="#2" className="nav__link">
-            Inicio
-          </a>
-        </li>
-        <li className="nav__item">
-          <a href="#destacado" className="nav__link">
-            Clientes
-          </a>
-        </li>
-        <li className="nav__item">
-          <a href="#estadistica" className="nav__link">
-            Equipos
-          </a>
-        </li>
-        <li className="nav__item">
-          <a href="#5" className="nav__link">
-            Servicios
-          </a>
-        </li>
-        <li className="nav__item">
-          <a href="#6" className="nav__link">
-            Ordenes
-          </a>
-        </li>
-      </ul>
-      <div onClick={navToggle} className={icon}>
-        <div className="line1"></div>
-        <div className="line2"></div>
-        <div className="line3"></div>
-      </div>
-    </nav>
+    <Navbar expand="lg" className="bg-success">
+      <Container>
+        <Navbar.Brand href="#home">Servicio Tecnico</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link href="#home">Inicio</Nav.Link>
+            <Nav.Link href="#link">Ordenes</Nav.Link>
+            <NavDropdown title="Administrar" id="basic-nav-dropdown">
+              <NavDropdown.Item href="#action/3.1">Clientes</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.2">
+                Equipos
+              </NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3">Servicios</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action/3.4">
+                Cerrar Sesion
+              </NavDropdown.Item>
+            </NavDropdown>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 }
 
-export default Navbar;
+export default BasicExample;
